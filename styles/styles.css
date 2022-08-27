@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&family=Smooch+Sans:wght@100;300&display=swap');
+
+body{
+    background-color: #121212;
+    color: #dedede;
+    font-family: 'Nova Square', cursive;
+    text-align: justify;
+    vertical-align: middle;
+    align-items: center;
+    margin: 3%;
+    line-height: 35px;
+    overflow: hidden;
+}
+
+table{
+    height: 100%;
+}
+
+img{
+    border-radius: 50%;
+    filter: grayscale(85%);
+}
+
+a{
+    text-decoration: none;
+    color: #dedede;
+}
