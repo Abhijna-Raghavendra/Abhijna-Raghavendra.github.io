@@ -1,0 +1,29 @@
+---
+import DefaultHead from "./DefaultHead.astro";
+
+const {frontmatter} = Astro.props;
+const contact_list = {
+    LinkedIn : 'https://www.linkedin.com/in/abhijna-raghavendra-696b2924b/',
+    Github   : 'https://github.com/Abhijna-Raghavendra/',
+    Mail     : 'mailto: contact.abhijna@gmail.com'
+};
+---
+
+<html lang="en">
+<DefaultHead title={frontmatter.title}></DefaultHead>
+<body class="bg-gray-900 text-gray-200 font-mono text-center flex flex-col h-screen justify-center items-center">
+
+    <div id="typed-strings">
+        <h1>{`Hey 👋, This is ${frontmatter.name}`}</h1>
+    </div>
+    <div class="text-5xl"><span id="typed"></span></div>
+    <div class="p-12 text-lg leading-relaxed">
+        <slot/>
+    </div>
+    <footer class="sticky top-[100vh] p-5 text-2xl">
+        <a href={contact_list.LinkedIn}><i class="fa-brands fa-linkedin"></i></a>
+        &nbsp&nbsp<a href={contact_list.Github}><i class="fa fa-github"></i></a>&nbsp&nbsp
+        <a href={contact_list.Mail}><i class="fa fa-envelope"></i></a>
+    </footer>
+</body>
+</html>

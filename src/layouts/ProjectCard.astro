@@ -1,0 +1,37 @@
+---
+const {project} = Astro.props;
+const {name, tech, description, github} = project.frontmatter;
+
+const badges = new Map<string, string>([
+    ['vscode','https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white'],
+    ['shell','https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white'],
+    ['slack','https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white'],
+    ['firebase','https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black'],
+    ['fastapi','https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white'],
+    ['electron','https://img.shields.io/badge/Electron-2B2E3A?style=for-the-badge&logo=electron&logoColor=9FEAF9'],
+    ['deno','https://img.shields.io/badge/Deno-white?style=for-the-badge&logo=deno&logoColor=464647'],
+    ['flutter','https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white'],
+    ['node','https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white'],
+    ['django','https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green'],
+    ['flask','https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white'],
+    ['vue','https://img.shields.io/badge/Vue%20js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D'],
+    ['react','https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB'],
+    ['mongo','https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white'],
+    ['postgres','https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white'],
+    ['docker','https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white'],
+    ['nginx','https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white'],
+    ['arduino','https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white'],
+    ['rpi','https://img.shields.io/badge/Raspberry%20Pi-A22846?style=for-the-badge&logo=Raspberry%20Pi&logoColor=white'],
+    ]);
+---
+<div class="text-m w-auto border-2 rounded-lg border-dashed hover:border-solid p-3 mx-3 my-2">
+    <h3 class="text-xl font-bold">> <a href={github}>[{name}]</a></h3>
+    <table>
+        <tr>
+            {
+                tech.map((stack:string) => <td><img src={badges.get(stack)}/></td>)
+            }
+        </tr>
+    </table>
+    <h5 class="text-m m-1">{description}</h5>
+</div>

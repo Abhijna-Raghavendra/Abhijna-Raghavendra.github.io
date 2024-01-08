@@ -1,0 +1,19 @@
+---
+import DefaultHead from "./DefaultHead.astro";
+import ProjectCard from "./ProjectCard.astro";
+
+const {frontmatter} = Astro.props;
+const projects = await Astro.glob("../pages/projects/*.md")
+---
+<html lang="en">
+<DefaultHead title={frontmatter.title}></DefaultHead>
+<body class="bg-gray-900 text-gray-200 font-mono p-10">
+    <div class="text-4xl mx-3 my-5">
+        <slot/>
+    </div>
+    
+    {
+        projects.map((project) => <ProjectCard {project}></ProjectCard>)
+    }
+</body>
+</html>
