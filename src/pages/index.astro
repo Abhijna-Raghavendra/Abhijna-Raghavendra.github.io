@@ -68,7 +68,6 @@ const groups = [
   {id: 'research', title: 'Research', items: research},
   {id: 'projects', title: 'Projects', items: projects},
 ];
-const count = (n: number) => `${String(n).padStart(2, '0')} ${n === 1 ? 'project' : 'projects'}`;
 ---
 <Base>
 <div class="academic-site">
@@ -76,7 +75,7 @@ const count = (n: number) => `${String(n).padStart(2, '0')} ${n === 1 ? 'project
     <div class="profile-top"><img class="portrait" src="/abhijna-raghavendra.jpeg" alt="Abhijna Raghavendra on a mountain hike" width="1200" height="1600" fetchpriority="high" /></div>
     <h1>Abhijna<br />Raghavendra<span>.</span></h1>
     <ul class="profile-interests" aria-label="Research interests"><li>Post-quantum cryptography</li><li>Proof systems</li><li>Coding theory</li></ul>
-    <p class="profile-bio">I’m a cryptography enthusiast with a degree in Mathematics and Computing from IIT Roorkee. I build software at Oracle NetSuite and have a weakness for problems that put up a fight.</p>
+    <p class="profile-bio">I’m a cryptography enthusiast with a degree in Mathematics and Computing from IIT Roorkee. I build software at Oracle NetSuite and have a soft spot for problems that put up a fight.</p>
     <p class="profile-bio">When I’m not doing that, you’ll find me on a <span class="hint hint-ball" tabindex="0"><span class="ball" aria-hidden="true">🏀</span>basketball cour<span class="t">t</span></span>, <a href="/projects">building side projects</a>, or on a <span class="hint hint-hike" tabindex="0" data-hint="Exhibit A ↑">scenic hike</span>.</p>
     <div class="socials">
       <a href="mailto:contact.abhijna@gmail.com">Email ↗</a>
@@ -111,7 +110,7 @@ const count = (n: number) => `${String(n).padStart(2, '0')} ${n === 1 ? 'project
 
     {groups.map(g => (
       <section id={g.id} class="research-section" aria-labelledby={`${g.id}-title`}>
-        <div class="section-heading"><h2 id={`${g.id}-title`}>{g.title}</h2><span class="eyebrow">{count(g.items.length)}</span></div>
+        <div class="section-heading"><h2 id={`${g.id}-title`}>{g.title}</h2></div>
         <div class="research-list">
           {g.items.map((r, i) => {
             const links = available(r.links);
