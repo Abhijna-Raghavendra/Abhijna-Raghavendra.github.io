@@ -1,0 +1,23 @@
+---
+import Base from "./Base.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import ProjectCard from "./ProjectCard.astro";
+
+const {frontmatter} = Astro.props;
+const projects = await Astro.glob("../pages/projects/*.md");
+---
+<Base title={`${frontmatter.title} | Abhijna Raghavendra`}>
+    <header class="projects-header"><a href="/">← Home</a><ThemeToggle /></header>
+    <h1>Software projects</h1>
+    <p class="meta">Built during my undergraduate years, mostly with MDG Space and at hackathons.</p>
+    <ul class="plain project-list" style="margin-top:32px">
+    {
+        projects.map((project) => <li><ProjectCard {project}></ProjectCard></li>)
+    }
+    </ul>
+</Base>
+
+
+<style>
+.projects-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; font-size:13px; }.projects-header a { text-decoration:none; }
+</style>

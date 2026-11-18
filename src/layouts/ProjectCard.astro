@@ -1,0 +1,9 @@
+---
+const {project} = Astro.props;
+const {name, tech, description, github} = project.frontmatter;
+---
+<div>
+    <div class="item-title"><a href={github}>{name}</a></div>
+    <div class="small">{tech.map((t: string) => <span class="tag">{t}</span>)}</div>
+    <p style="margin-top:6px">{description}</p>
+</div>
